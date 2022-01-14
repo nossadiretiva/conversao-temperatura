@@ -34,12 +34,12 @@ Para garantir que a imagem foi gerada corretamente foi criado um container local
 
     docker container run -d --network kubedev_network --name conversao-temperatura -p 8080:8080 nossadiretiva/conversao-temperatura:v1
 
-Utilizando o comando `docker container` run com os seguintes parâmetros:
-- `-d` para construir o container em modo daemon e não deixar o prompt preso durante sua execução
-- `--network` para definir uma *network* (previamente criada) onde o container estará conectado para se comunicar com outros containers
+Utilizando o comando `docker container run` com os seguintes parâmetros:
+- `-d` para construir o container em modo *daemon* e não deixar o *prompt* preso durante sua execução
+- `--network` para definir uma *network* (previamente criada) onde o container estará conectado a rede  para se comunicar com outros containers
 - `--name` para dar um nome ao container
-- `-p` para configurar um bind de portas entre o host (máquina local) e o container, onde a configuração segue o padrão ***"porta acessada pelo host:porta exposta pelo container"***
-- e por último o nome completo da imagem
+- `-p` para configurar um *bind* de portas entre o *host* (máquina local) e o container, onde a configuração segue o padrão ***"porta acessada pelo host:porta exposta pelo container"***
+- e por último o nome completo da imagem a ser utilizada para criar o container
 
 ## Subir imagem criada para o *Docker Hub*
 
@@ -60,7 +60,7 @@ Após a autenticação no *Docker Hub* vamos realizar o ***push*** da imagem par
 
     docker push nossadiretiva/conversao-temperatura:v1
 
-Como parte das boas práticas de desenvolvimento e manipulação de imagens *Docker* precisamos subir com um imagem com a *tag* de versionamento ***latest*** para podermos criar um container sem a necessidade de sabermos qual versão de imagem está disponível.
+Como parte das boas práticas de desenvolvimento e manipulação de imagens *Docker* precisamos subir com uma imagem com a *tag* de versionamento ***latest*** para podermos criar um container sem a necessidade de sabermos qual versão de imagem está disponível.
 
 Para isso vamos criar uma imagem com a *tag* de versionamento ***latest*** utilizando o comando:
 
@@ -72,7 +72,7 @@ Logo depois basta apenas realizar o ***push*** desta nova imagem utilizando o me
 
 Após executar essa tarefa o *Docker Hub* do usuário conectado deve ficar como mostra a imagem abaixo:
 
-![enter image description here](https://github.com/nossadiretiva/imagens/blob/master/hub_conversao_temperatura.png?raw=true)
+![Docker Hub](https://github.com/nossadiretiva/imagens/blob/master/hub_conversao_temperatura.png?raw=true)
 
 ## Realizando teste com a imagem do *Docker Hub*
 
@@ -105,4 +105,4 @@ Após não existir mais vestígios nem das imagens e nem dos containers, executa
     
 Durante a execução do teste foi alcançado o seguinte resultado:
 
-![enter image description here](https://github.com/nossadiretiva/imagens/blob/master/teste_conversao_temperatura.png?raw=true)
+![Página de teste](https://github.com/nossadiretiva/imagens/blob/master/teste_conversao_temperatura.png?raw=true)
